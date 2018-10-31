@@ -11,6 +11,7 @@ class Spaceship extends Floater
 	public void setPointDirection(int degrees){myPointDirection = degrees;}
 	public double getPointDirection(){return (double)myPointDirection;}
 	public Spaceship(){
+		myColor = color(255);
 		corners = 4;
 		xCorners = new int[corners];
 		yCorners = new int[corners];
