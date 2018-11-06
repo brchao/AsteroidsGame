@@ -1,7 +1,8 @@
 //your variable declarations here
 Spaceship bob = new Spaceship();
 Star [] stars;
-Asteroid [] asteroids; 
+ArrayList <Asteroid> asteroidList;
+
 public void setup() 
 {
 	size(600,600);
@@ -10,10 +11,20 @@ public void setup()
 	for(int i = 0; i < stars.length; i++){
 		stars[i] = new Star();
 	}
-	asteroids = new Asteroid[10];
-	for(int i = 0; i < asteroids.length; i++){
-		asteroids[i] = new Asteroid();
-	}
+	
+	asteroidList = new ArrayList <Asteroid>();
+	asteroidList.add(new Asteroid());
+	asteroidList.add(new Asteroid());
+	asteroidList.add(new Asteroid());
+	asteroidList.add(new Asteroid());
+	asteroidList.add(new Asteroid());
+	asteroidList.add(new Asteroid());
+	asteroidList.add(new Asteroid());
+	asteroidList.add(new Asteroid());
+	asteroidList.add(new Asteroid());
+	asteroidList.add(new Asteroid());
+
+
   //your code here
 }
 public void draw() 
@@ -22,12 +33,16 @@ public void draw()
   	for(int i = 0; i < stars.length; i++){
 		stars[i].show();
 	}
-	for(int i = 0; i < asteroids.length; i++){
-		asteroids[i].show();
-		asteroids[i].move();
+	for(int i = 0; i < asteroidList.size(); i++){
+		asteroidList.get(i).show();
+		asteroidList.get(i).move();
+		if(dist(bob.getX(),bob.getY(),asteroidList.get(i).getX(),asteroidList.get(i).getY()) < 20){
+			asteroidList.remove(i);
+		}
 	}
   	bob.show();
   	bob.move();
+
 }
 
 public void keyPressed(){
@@ -40,10 +55,10 @@ public void keyPressed(){
 
 	}
 	if(key == 'a'){
-		bob.turn(-5);
+		bob.turn(-10);
 	}
 	if(key == 'd'){
-		bob.turn(5);
+		bob.turn(10);
 	}
 	if(key == 'w'){
 		bob.accelerate(.1);
