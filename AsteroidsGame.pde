@@ -2,6 +2,7 @@
 Spaceship bob = new Spaceship();
 Star [] stars;
 ArrayList <Asteroid> asteroidList;
+ArrayList <Bullet> bulletList;
 
 public void setup() 
 {
@@ -13,16 +14,10 @@ public void setup()
 	}
 	
 	asteroidList = new ArrayList <Asteroid>();
-	asteroidList.add(new Asteroid());
-	asteroidList.add(new Asteroid());
-	asteroidList.add(new Asteroid());
-	asteroidList.add(new Asteroid());
-	asteroidList.add(new Asteroid());
-	asteroidList.add(new Asteroid());
-	asteroidList.add(new Asteroid());
-	asteroidList.add(new Asteroid());
-	asteroidList.add(new Asteroid());
-	asteroidList.add(new Asteroid());
+	for(int i = 0; i < 19; i++){
+		asteroidList.add(i, new Asteroid());
+	}
+	bulletList = new ArrayList <Bullet>();
 
 
   //your code here
@@ -40,10 +35,25 @@ public void draw()
 			asteroidList.remove(i);
 		}
 	}
+	for(int i = 0; i < bulletList.size(); i++){
+			bulletList.get(i).show();
+			bulletList.get(i).move();
+		for(int j = 0; j < asteroidList.size(); j++){
+
+			if(dist(bulletList.get(i).getX(),bulletList.get(i).getY(),asteroidList.get(j).getX(),asteroidList.get(j).getY()) < 20){
+				bulletList.remove(i);
+				asteroidList.remove(j);
+				break;
+			}
+
+		
+		}
+	}
   	bob.show();
   	bob.move();
 
 }
+
 
 public void keyPressed(){
 	if(key == 'e'){
@@ -66,7 +76,14 @@ public void keyPressed(){
 	if(key == 's'){
 		bob.accelerate(-.1);
 	}
-
+	if(key == ' '){
+		bulletList.add(new Bullet(bob));
+	}
+	if(key == 'q'){
+		for(int i = 0; i < 19; i++){
+			asteroidList.add(i, new Asteroid());
+		}
+	}
 
 }
 
