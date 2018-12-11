@@ -84,6 +84,6 @@ public void keyPressed(){
 			asteroidList.add(i, new Asteroid());
 		}
 	}
-
+//
 }
 
