@@ -7,7 +7,7 @@ ArrayList <Bullet> bulletList;
 public void setup() 
 {
 	size(600,600);
-	frameRate(120);
+	frameRate(300);
 	stars = new Star[200];
 	for(int i = 0; i < stars.length; i++){
 		stars[i] = new Star();
@@ -84,6 +84,19 @@ public void keyPressed(){
 			asteroidList.add(i, new Asteroid());
 		}
 	}
+	if(key == 'p'){
+		if(asteroidList.size() >= 1){
+			for(int i = 0; i < 1; i++){
+				asteroidList.remove(i);
+				i--;
+				break;
+			}
+		}
+	}
+	if(key == 'c'){
+		bob.setColor();
+	}
+
 //
 }
 

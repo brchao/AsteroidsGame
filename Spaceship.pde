@@ -10,6 +10,8 @@ class Spaceship extends Floater
 	public double getDirectionY(){return (double)myDirectionY;}
 	public void setPointDirection(int degrees){myPointDirection = degrees;}
 	public double getPointDirection(){return (double)myPointDirection;}
+	public void setColor(){myColor = color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));}
+	public int getColor(){return (int)myColor;}
 	public Spaceship(){
 		myColor = color(255);
 		corners = 4;
