@@ -7,7 +7,7 @@ ArrayList <Bullet> bulletList;
 public void setup() 
 {
 	size(600,600);
-	frameRate(300);
+	frameRate(120);
 	stars = new Star[200];
 	for(int i = 0; i < stars.length; i++){
 		stars[i] = new Star();

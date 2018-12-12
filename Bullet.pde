@@ -1,6 +1,6 @@
 class Bullet extends Floater
 {
-	double dRadians;
+	private double dRadians;
 	public void setX(int x){myCenterX = x;}
 	public int getX(){return (int)myCenterX;}
 	public void setY(int y){myCenterY = y;}
@@ -21,6 +21,6 @@ class Bullet extends Floater
 	}
 	public void show(){
 		fill(255,255,0);
-		ellipse((float)myCenterX,(float)myCenterY,7,7);
+		ellipse((float)myCenterX,(float)myCenterY,12,12);
 	}
 }
