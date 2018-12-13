@@ -57,6 +57,15 @@ public void draw()
   	if(key == 'g'){
 		gnome();
 	}
+	if(key == 'p'){
+		if(asteroidList.size() >= 1){
+			for(int i = 0; i < 1; i++){
+				asteroidList.remove(i);
+				i--;
+				break;
+			}
+		}
+	}
 }
 
 
@@ -89,15 +98,7 @@ public void keyPressed(){
 			asteroidList.add(i, new Asteroid());
 		}
 	}
-	if(key == 'p'){
-		if(asteroidList.size() >= 1){
-			for(int i = 0; i < 1; i++){
-				asteroidList.remove(i);
-				i--;
-				break;
-			}
-		}
-	}
+
 	if(key == 'c'){
 		bob.setColor();
 	}
