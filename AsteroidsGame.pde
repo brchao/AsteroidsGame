@@ -3,6 +3,8 @@ Spaceship bob = new Spaceship();
 Star [] stars;
 ArrayList <Asteroid> asteroidList;
 ArrayList <Bullet> bulletList;
+PImage img;
+
 
 public void setup() 
 {
@@ -18,12 +20,13 @@ public void setup()
 		asteroidList.add(i, new Asteroid());
 	}
 	bulletList = new ArrayList <Bullet>();
-
+	img = loadImage("gnome.jpg");
 
   //your code here
 }
 public void draw() 
 {
+	int time = 0;
   	background(0);
   	for(int i = 0; i < stars.length; i++){
 		stars[i].show();
@@ -51,7 +54,9 @@ public void draw()
 	}
   	bob.show();
   	bob.move();
-
+  	if(key == 'g'){
+		gnome();
+	}
 }
 
 
@@ -97,6 +102,12 @@ public void keyPressed(){
 		bob.setColor();
 	}
 
-//
 }
 
+public void gnome(){
+	image(img,137,80);
+}
+
+public void mousePressed(){
+	redraw();
+}
